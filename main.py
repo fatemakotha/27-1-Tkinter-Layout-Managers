@@ -1,16 +1,37 @@
-# This is a sample Python script.
+#pack() place() and grid() : ******
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+from tkinter import *
+
+def button_clicked():
+    print("I got clicked")
+    new_text = input.get()
+    my_label.config(text=new_text)
+
+my_window = Tk()
+my_window.title("My first GUI program")
+my_window.minsize(width=500, height=300)
+
+#Label
+my_label = Label(text="I am a Label", font=("Arial", 24, "bold"))
+my_label.config(text="New Text")
+# # my_label.pack() #or we can use place()
+# my_label.place(x=0, y=0) #places my_label at the TOP LEFT CORNER
+my_label.grid(column=0, row=0) #places my_label at the TOP LEFT CORNER
+# my_label.grid(column=5, row=5) #STILL places my_label at the TOP LEFT CORNER because there is nothing in the prev ros and columns
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+#Button
+my_button = Button(text="Click me", command=button_clicked)
+my_button.grid(column=1, row=1)
+
+#Entry
+input = Entry(width=10)
+print(input.get())
+input.grid(column=2, row=2)
 
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+
+
+
+my_window.mainloop()
